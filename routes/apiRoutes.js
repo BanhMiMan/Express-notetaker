@@ -6,9 +6,7 @@ const fs = require('fs')
 var uniqid = require('uniqid');
 
 
-// routing
 module.exports = (app) => {
-
   // GET /api/notes should read the db.json file and return all saved notes as JSON.
   app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../db/db.json'));
@@ -34,7 +32,6 @@ module.exports = (app) => {
 
   });
 
-
   // DELETE /api/notes/:id should receive a query parameter containing the id of a note to delete.
   app.delete('/api/notes/:id', (req, res) => {
     // reading notes form db.json
@@ -44,6 +41,5 @@ module.exports = (app) => {
     // Rewriting note to db.json
     fs.writeFileSync('db/db.json', JSON.stringify(deleteNotes));
     res.json(deleteNotes);
-    
   })
 };

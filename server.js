@@ -1,10 +1,5 @@
-// Dependencies
 const express = require('express');
-
-// app use express
 const app = express();
-
-// creating environment variable port
 const PORT = process.env.PORT || 3001;
 
 // sets up express app to handel data parser, middle wear created req.body
@@ -14,7 +9,7 @@ app.use(express.json());
 
 // asks express to create a route for every file in the 'public' folder and give it a '/' route
 app.use(express.static('public'));
-// routes to route files
+// file routes
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
